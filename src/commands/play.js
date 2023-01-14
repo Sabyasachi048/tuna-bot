@@ -45,10 +45,10 @@ module.exports = {
 		),
 	async execute(interaction) {
 		const channel = interaction.member?.voice.channel;
+		const inputUrl = interaction.options.getString('input');
 		await interaction.deferReply();
 		if (channel) {
 			try {
-				const inputUrl = interaction.options.getString('input');
 				if (
 					isNullOrUndefined(inputUrl) === true ||
 					inputUrl.length === 0
