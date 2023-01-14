@@ -5,9 +5,14 @@ module.exports = {
 		.setName('ping')
 		.setDescription('Replies with Pong!'),
 	async execute(interaction) {
-		await interaction.deferReply();
-		await interaction.reply(
-			`Pong!\nLatency ${Date.now() - interaction.createdTimestamp} ms`
-		);
+		try {
+			await interaction.deferReply();
+			await interaction.reply(
+				`Pong!\nLatency ${Date.now() - interaction.createdTimestamp} ms`
+			);
+		} catch (error) {
+			console.error(error);
+			await interaction.reply('Something went wrong :(');
+		}
 	}
 };
