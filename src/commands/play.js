@@ -57,7 +57,7 @@ module.exports = {
 				) {
 					await interaction.reply('No YouTube Url specified!!!');
 				} else {
-					await interaction.reply('Playing music...');
+					await interaction.reply(`Playing music \`${inputUrl}\``);
 					const connection = await connectToChannel(channel);
 					connection.subscribe(player);
 					await playSong(inputUrl);
