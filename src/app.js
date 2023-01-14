@@ -63,5 +63,3 @@ client.on(Events.InteractionCreate, async (interaction) => {
 		});
 	}
 });
-
-require('./api/server');
