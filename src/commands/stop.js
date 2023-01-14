@@ -13,7 +13,6 @@ const stopSong = () => {
 };
 
 const connectToChannel = async (channel) => {
-	console.log(29, channel.guild.voiceAdapterCreator);
 	const connection = joinVoiceChannel({
 		channelId: channel.id,
 		guildId: channel.guild.id,
@@ -47,7 +46,7 @@ module.exports = {
 				console.error(error);
 			}
 		} else {
-			interaction.reply('Something went wrong :(');
+			await interaction.reply('Something went wrong :(');
 		}
 	}
 };

@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const ytdl = require('ytdl-core');
+const play = require('play-dl');
 // const { Client, VoiceChannel, Intents } = require('discord.js');
 const {
 	joinVoiceChannel,
@@ -12,16 +13,13 @@ const { isNullOrUndefined } = require('../shared/utils');
 
 const player = createAudioPlayer();
 
-const playSong = (url) => {
-	const stream = ytdl(url, {
-		filter: 'audioonly'
-	});
+const playSong = async (url) => {
+	const stream = await play.stream(url);
 	const resource = createAudioResource(stream);
 	player.play(resource);
 };
 
 const connectToChannel = async (channel) => {
-	console.log(29, channel.guild.voiceAdapterCreator);
 	const connection = joinVoiceChannel({
 		channelId: channel.id,
 		guildId: channel.guild.id,
@@ -67,7 +65,7 @@ module.exports = {
 				console.error(error);
 			}
 		} else {
-			interaction.reply('Something went wrong :(');
+			await interaction.reply('Something went wrong :(');
 		}
 	}
 };
