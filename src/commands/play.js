@@ -47,6 +47,7 @@ module.exports = {
 		),
 	async execute(interaction) {
 		const channel = interaction.member?.voice.channel;
+		await interaction.deferReply();
 		if (channel) {
 			try {
 				const inputUrl = interaction.options.getString('input');
