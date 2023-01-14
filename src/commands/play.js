@@ -41,9 +41,7 @@ module.exports = {
 		.setName('play')
 		.setDescription('Play a song from YouTube')
 		.addStringOption((option) =>
-			option
-				.setName('input')
-				.setDescription('The YouTube url of the song')
+			option.setName('url').setDescription('The YouTube url of the song')
 		),
 	async execute(interaction) {
 		const channel = interaction.member?.voice.channel;
