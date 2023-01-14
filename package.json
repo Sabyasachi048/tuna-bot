@@ -6,7 +6,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "node .",
-		"deploy": "node src/deploy-commands"
+		"build": "node src/deploy-commands"
 	},
 	"keywords": [],
 	"author": "",
