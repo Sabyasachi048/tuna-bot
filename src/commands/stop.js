@@ -38,7 +38,7 @@ module.exports = {
 		const channel = interaction.member?.voice.channel;
 		if (channel) {
 			try {
-				interaction.reply('Stopping music player...');
+				await interaction.reply('Stopping music player...');
 				const connection = await connectToChannel(channel);
 				connection.subscribe(player);
 				await stopSong();
