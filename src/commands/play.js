@@ -1,7 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const ytdl = require('ytdl-core');
 const play = require('play-dl');
-// const { Client, VoiceChannel, Intents } = require('discord.js');
 const {
 	joinVoiceChannel,
 	createAudioPlayer,
