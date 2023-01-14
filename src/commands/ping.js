@@ -7,7 +7,7 @@ module.exports = {
 	async execute(interaction) {
 		await interaction.deferReply();
 		await interaction.reply(
-			`Pong!\n Latency ${Date.now() - interaction.createdTimestamp} ms`
+			`Pong!\nLatency ${Date.now() - interaction.createdTimestamp} ms`
 		);
 	}
 };

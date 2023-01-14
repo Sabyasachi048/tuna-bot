@@ -35,7 +35,7 @@ module.exports = {
 		.setDescription('Stop playing music.'),
 	async execute(interaction) {
 		const channel = interaction.member?.voice.channel;
-		await interaction.deferReply();
+		// await interaction.deferReply();
 		if (channel) {
 			try {
 				await interaction.reply('Stopping music player...');
