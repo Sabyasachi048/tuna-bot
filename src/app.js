@@ -2,6 +2,7 @@ const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 const { isNullOrUndefined } = require('./shared/utils');
+require('./api/server');
 
 require('dotenv').config();
 
