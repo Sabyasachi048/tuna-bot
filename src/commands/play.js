@@ -45,7 +45,7 @@ module.exports = {
 		),
 	async execute(interaction) {
 		const channel = interaction.member?.voice.channel;
-		// await interaction.deferReply();
+		await interaction.deferReply();
 		if (channel) {
 			try {
 				const inputUrl = interaction.options.getString('input');
@@ -53,9 +53,11 @@ module.exports = {
 					isNullOrUndefined(inputUrl) === true ||
 					inputUrl.length === 0
 				) {
-					await interaction.reply('No YouTube Url specified!!!');
+					await interaction.editReply('No YouTube Url specified!!!');
 				} else {
-					await interaction.reply(`Playing music \`${inputUrl}\``);
+					await interaction.editReply(
+						`Playing music \`${inputUrl}\``
+					);
 					const connection = await connectToChannel(channel);
 					connection.subscribe(player);
 					await playSong(inputUrl);
@@ -64,7 +66,7 @@ module.exports = {
 				console.error(error);
 			}
 		} else {
-			await interaction.reply('Something went wrong :(');
+			await interaction.editReply('Something went wrong :(');
 		}
 	}
 };

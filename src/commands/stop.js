@@ -35,10 +35,10 @@ module.exports = {
 		.setDescription('Stop playing music.'),
 	async execute(interaction) {
 		const channel = interaction.member?.voice.channel;
-		// await interaction.deferReply();
+		await interaction.deferReply();
 		if (channel) {
 			try {
-				await interaction.reply('Stopping music player...');
+				await interaction.editReply('Stopping music player...');
 				const connection = await connectToChannel(channel);
 				connection.subscribe(player);
 				await stopSong();
@@ -47,7 +47,7 @@ module.exports = {
 				console.error(error);
 			}
 		} else {
-			await interaction.reply('Something went wrong :(');
+			await interaction.editReply('Something went wrong :(');
 		}
 	}
 };
