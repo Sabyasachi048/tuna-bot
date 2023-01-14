@@ -13,7 +13,9 @@ const player = createAudioPlayer();
 
 const playSong = async (url) => {
 	const stream = await play.stream(url);
-	const resource = createAudioResource(stream);
+	const resource = createAudioResource(stream.stream, {
+		inputType: stream.type
+	});
 	player.play(resource);
 };
 
